@@ -5,6 +5,7 @@ namespace jolalau\WebManRedis;
 
 /**
  * Redis缓存
+ * @method static config(array $options)
  * @method static has(string $name)
  * @method static get(string $name, mixed $default = null)
  * @method static set(string $name, mixed $data, $expire = null)

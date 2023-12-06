@@ -16,13 +16,12 @@ class Start implements Bootstrap
         if (!$config) {
             return;
         }
-        $redis = new Manager();
         // 配置参数
-        $redis->config($config);
+        Redis::config($config);
         // 维持心跳
         if ($worker) {
-            Timer::add(55, function ($redis) {
-                $redis->get('ping');
+            Timer::add(55, function () {
+                Redis::get('ping');
             });
         }
     }
