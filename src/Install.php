@@ -22,7 +22,7 @@ class Install
     {
         $config_file = config_path() . '/bootstrap.php';
         $config = include $config_file;
-        if(!in_array(JolalauCache::class, $config ?? [])) {
+        if(!in_array(Start::class, $config ?? [])) {
             $config_file_content = file_get_contents($config_file);
             $config_file_content = preg_replace('/\];/', "    jolalau\WebManRedis\Start::class,\n];", $config_file_content);
             file_put_contents($config_file, $config_file_content);
@@ -42,7 +42,7 @@ class Install
     {
         $config_file = config_path() . '/bootstrap.php';
         $config = include $config_file;
-        if(in_array(JolalauCache::class, $config ?? [])) {
+        if(in_array(Start::class, $config ?? [])) {
             $config_file = config_path() . '/bootstrap.php';
             $config_file_content = file_get_contents($config_file);
             $config_file_content = preg_replace('/ {0,4}jolalau\\\\WebManRedis\\\\Start::class,?\r?\n?/', '', $config_file_content);
